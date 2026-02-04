@@ -235,7 +235,15 @@ local freezing_phraselist = {
 	"This-s sSUCKS-S! Co-oldd..",
 	"I.. Cannot feel any-ythi-ing..",
 	"I fee-l dizz-yy..",
-	"FUCK- THIS-S COLD!"
+	"FUCK- THIS-S COLD!",
+}
+local numb_phraselist = {
+	"It's not.. cold anymore..",
+	"Why.. does it feel warm..?",
+	"Everything hurts.. then nothing.",
+	"That.. feels weird..!",
+	"I think I'm okay.. I think-",
+	"That's... not right..!"
 }
 
 local hot_phraselist = {
@@ -302,12 +310,12 @@ function hg.likely_to_phrase(ply)
 	return (broken_dislocated) and 5
 		or (pain > 75) and 5
 		or (pain > 65) and 5
+		or (temperature < 31 and 1.5 or 0.5)
+		or (temperature > 40 and 2 or 1)
 		or (blood < 3000 and 0.3)
 		--or (fear > 0.5 and 0.7)
 		or (brain > 0.1 and brain * 5)
 		or (fear < -0.5 and 0.05)
-		or (temperature < 31 and 1.5 or 0.5)
-		or (temperature > 40 and 3 or 1)
 		or -0.1
 end
 
@@ -389,7 +397,7 @@ local function get_status_message(ply)
 	end
 
 	if temperature < 35 then
-		most_wanted_phraselist = temperature > 31 and cold_phraselist or freezing_phraselist
+		most_wanted_phraselist = temperature > 31 and cold_phraselist or (temperature < 28 and numb_phraselist or freezing_phraselist)
 	elseif temperature > 38 then
 		most_wanted_phraselist = temperature < 40 and hot_phraselist or heatstroke_phraselist
 	end

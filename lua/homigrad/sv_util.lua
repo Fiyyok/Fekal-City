@@ -1543,7 +1543,7 @@ hook.Add("Org Think", "BodyTemperature", function(owner, org, timeValue) -- пе
 		local isHeating = org.temperature < 46 and org.temperature > 38
 
 		org.tempchanging = true
-		org.temperature = Lerp(changeRate, org.temperature, temp + (temp >= 0 and 40 or 0))
+		org.temperature = Lerp(changeRate, org.temperature, 36.7 + temp)
 
 		-- При холоде
 		org.FreezeSndCD = org.FreezeSndCD or CurTime() + 5
