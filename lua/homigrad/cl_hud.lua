@@ -482,6 +482,7 @@ hook.Add("radialOptions", "7", function()
 				RunConsoleCommand("act", randomGestures[math.random(#randomGestures)])
 				if (ply.NextFoley or 0) < CurTime() then
 					ply:EmitSound("player/clothes_generic_foley_0" .. math.random(5) .. ".wav", 55)
+					ply.NextFoley = CurTime() + 1
 				end
 			else
 				local commands = {}
