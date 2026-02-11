@@ -48,7 +48,7 @@ end
 
 local scrW, scrH = ScrW(), ScrH()
 
-local AcsentColor = Color(155,0,0)
+local AcsentColor = Color(26,2,2)
 local gradient_u = Material("vgui/gradient-d")
 
 function WS.WeaponSelectorDraw( ply )
