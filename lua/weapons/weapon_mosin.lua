@@ -1,49 +1,52 @@
 SWEP.Base = "weapon_m4super"
 SWEP.Spawnable = true
 SWEP.AdminOnly = false
-SWEP.PrintName = "Mosin-Nagant M38"
-SWEP.Author = "Izhevsk Machine-Building Plant"
-SWEP.Instructions = "Bolt-action rifle chambered in 7.62x54 mm"
+SWEP.PrintName = "Mosin-Nagant 1891/30 Rifle"
+SWEP.Author = "Tula Arms Plant"
+SWEP.Instructions = "Sniper rifle chambered in 7.62x54"
 SWEP.Category = "Weapons - Sniper Rifles"
 SWEP.Slot = 2
 SWEP.SlotPos = 10
 SWEP.ViewModel = ""
-SWEP.WorldModel = "models/weapons/w_snip_scout.mdl"
-SWEP.WorldModelFake = "models/weapons/zcity/c_mosin.mdl"
-SWEP.FakeScale = 1
-
-SWEP.FakePos = Vector(-7, 2.7, 6)
-SWEP.FakeAng = Angle(0.25, 0, 0)
-
-SWEP.FakeAttachment = "muzzle"
-SWEP.AttachmentPos = Vector(-0.1,-0.3,2)
-SWEP.AttachmentAng = Angle(90,0,0)
+SWEP.WorldModel = "models/weapons/w_ins2_mosin_nagant.mdl" --"models/weapons/zcity/gleb/w_kar98k.mdl ; models/weapons/w_ins2_mosin_nagant.mdl"
+SWEP.WorldModelFake = "models/weapons/c_ins2_mosin_nagant.mdl"
+SWEP.FakeScale = 0.9
+//PrintAnims(Entity(1):GetActiveWeapon():GetWM())
+--PrintTable(Entity(1):GetActiveWeapon():GetWM():GetAttachments())
+--uncomment for funny
+SWEP.FakePos = Vector(-1.5, 1., 5.7)
+SWEP.FakeAng = Angle(0, 0, 0)
+//SWEP.MagIndex = 41
+SWEP.FakeAttachment = "1"
+SWEP.AttachmentPos = Vector(0,0,0)
+SWEP.AttachmentAng = Angle(0,0,0)
 SWEP.FakeBodyGroups = "000000000"
+SWEP.FakeAttachment = "muzzle"
 SWEP.BarrelLength = 40
 SWEP.SUPBarrelLenght = 47
-SWEP.OpenBolt = true
-SWEP.CantFireFromCollision = false // 2 спусковых крючка все дела
+SWEP.OpenBolt = false
+SWEP.CantFireFromCollision = true // 2 спусковых крючка все дела
 
 SWEP.FakeViewBobBone = "ValveBiped.Bip01_L_Hand"
 SWEP.FakeViewBobBaseBone = "ValveBiped.Bip01_L_UpperArm"
-SWEP.ViewPunchDiv = 30
+SWEP.ViewPunchDiv = 33
 
-
+--SWEP.ReloadHold = nil
 SWEP.FakeVPShouldUseHand = false
 
-SWEP.WepSelectIcon2 = Material("vgui/hud/tfa_ins2_i_mosin")
-SWEP.WepSelectIcon2box = false
-SWEP.IconOverride = "entities/arc9_eft_mosin_infantry.png"
+SWEP.WepSelectIcon2 = Material("entities/mosin.png")
+SWEP.IconOverride = "entities/mosin.png"
 
-SWEP.LocalMuzzlePos = Vector(27, 0.5, 4)
-SWEP.LocalMuzzleAng = Angle(.3,0,0)
+SWEP.LocalMuzzlePos = Vector(43.5, -1.8, 3.3)
+SWEP.LocalMuzzleAng = Angle(0.0,-0.0,0)
 SWEP.WeaponEyeAngles = Angle(-0.7,0.1,0)
 
 SWEP.CustomShell = "762x54"
-
+SWEP.EjectPos = Vector(-0,8,4)
+SWEP.EjectAng = Angle(0,-90,0)
 SWEP.ReloadSound = "weapons/tfa_ins2/k98/m40a1_boltlatch.wav"
-SWEP.CockSound = "weapons/tfa_ins2/k98/m40a1_boltlatch.wav"
-SWEP.DistSound = "mosin/mosin_dist.wav"
+SWEP.CockSound = "weapons/easternfront/mosin/handling/mosin_bolt_forward.wav"
+SWEP.DistSound = "weapons/easternfront/mosin/m44_fp.wav"
 SWEP.weight = 4
 SWEP.ScrappersSlot = "Primary"
 SWEP.weaponInvCategory = 1
@@ -53,47 +56,27 @@ SWEP.UseCustomWorldModel = false
 SWEP.Primary.ClipSize = 5
 SWEP.Primary.DefaultClip = 5
 SWEP.Primary.Automatic = false
-SWEP.Primary.Ammo = "7.62x54 mm"
+SWEP.Primary.Ammo = "7.62x51 mm"
 SWEP.Primary.Cone = 0
 SWEP.Primary.Spread = 0
-
-sound.Add({
-	name = "Mosin-Nagant_Shoot",
-	sound = {
-		"weapons/easternfront/mosin/m44_fp - copy (2).wav",
-		"weapons/easternfront/mosin/mn91_30_fp - copy (3).wav",
-		"weapons/easternfront/mosin/mn91_30_fp - copy.wav",
-		"weapons/easternfront/mosin/mn91_30_fp.wav"
-	},
-})
-
-SWEP.Primary.Sound = {"Mosin-Nagant_Shoot", 80, 90, 110}
+SWEP.Primary.Sound = {"weapons/tfa_ins2/k98/m40a1_fp.wav", 80, 90, 100}
 SWEP.SupressedSound = {"mosin/mosin_suppressed_fp.wav", 80, 90, 100}
 SWEP.availableAttachments = {
-	barrel = {
-		[1] = {"supressor1", Vector(-4.7,1,0), {}},
-		[2] = {"supressor6", Vector(-2.2,1.3,0), {}},
-		[3] = {"supressor7", Vector(-3.7,0.4,0), {}},
-	},
-	sight = {
-		["mountType"] = "kar98mount",
-		["mount"] = Vector(-20, 5, 0.1),
-	},
 }
 
 SWEP.Primary.Wait = 0.25
-SWEP.NumBullet = 1
-SWEP.AnimShootMul = 1
-SWEP.AnimShootHandMul = 1
+SWEP.NumBullet = 8
+SWEP.AnimShootMul = 3
+SWEP.AnimShootHandMul = 10
 SWEP.DeploySnd = {"homigrad/weapons/draw_hmg.mp3", 55, 100, 110}
 SWEP.HolsterSnd = {"homigrad/weapons/hmg_holster.mp3", 55, 100, 110}
 SWEP.HoldType = "rpg"
-SWEP.ZoomPos = Vector(0, 0.6288, 4.8672)
+SWEP.ZoomPos = Vector(0, -1.79, 4.24)
 SWEP.RHandPos = Vector(0, 0, -1)
 SWEP.LHandPos = Vector(7, 0, -2)
-SWEP.Ergonomics = 0.9
+SWEP.Ergonomics = 0.8
 SWEP.Penetration = 7
-SWEP.WorldPos = Vector(0.2, -0.5, 0)
+SWEP.WorldPos = Vector(-2, -0.5, 0)
 SWEP.WorldAng = Angle(0.7, -0.1, 0)
 SWEP.UseCustomWorldModel = true
 SWEP.attPos = Vector(0.4, -0.15, 0)
@@ -101,108 +84,55 @@ SWEP.attAng = Angle(0, 0.2, 0)
 SWEP.lengthSub = 20
 
 SWEP.holsteredBone = "ValveBiped.Bip01_Spine2"
-SWEP.holsteredPos = Vector(9, 8, -8)
+SWEP.holsteredPos = Vector(8, 7, -8)
 SWEP.holsteredAng = Angle(210, 0, 180)
+
+--local to head
+--SWEP.RHPos = Vector(1,-5,3.4)
+--SWEP.RHAng = Angle(0,-15,90)
+----local to rh
+--SWEP.LHPos = Vector(18,-0.8,-3.6)
+--SWEP.LHAng = Angle(-100,-180,0)
 
 SWEP.AnimList = {
 	["idle"] = "base_idle",
 	["reload"] = "base_Fire_end",
-	["finish_empty"] = "Base_Reload_End",
-	["finish"] = "Base_Reload_End",
-	["insert"] = "Base_Reload_Insert",
-	["start"] = "Base_Reload_Start",
-	["start_empty"] = "base_reload_start_empty",
+	["reload_empty"] = "base_Fire_end",
+	["finish_empty"] = "Reload_End",
+	["finish"] = "Reload_End",
+	["insert"] = "Reload_Insert",
+	["start"] = "Reload_Start",
 	["cycle"] = "base_Fire_end",
 }
-
 local math = math
 local math_random = math.random
-local vecfull = Vector(1,1,1)
-
-local function HideMag(model, unhide)
-	if !IsValid(model) then return end
-
-	local vec = unhide and vecfull or vector_origin
-
-	for i = 100, 106 do
-		model:ManipulateBoneScale(i, vec)
-	end
-end
-
-local function HideMag2(model, unhide)
-	if !IsValid(model) then return end
-
-	local vec = unhide and vecfull or vector_origin
-
-	model:ManipulateBoneScale(101, vec)
-end
-
-local function SetModelAmmo(model, self)
-	if !IsValid(model) then return end
-
-	model:SetBodygroup(1, math.Clamp(self:Clip1(), 0, self.Primary.ClipSize))
-end
-
-function SWEP:ModelCreated(model)
-	HideMag(model, false)
-	SetModelAmmo(model, self)
-end
-
 SWEP.AnimsEvents = {
-	["Base_Reload_Start"] = {
+	["Reload_Start"] = {
 		[0.3] = function(self)
-			SetModelAmmo(self:GetWM(), self)
 			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_back.wav", 45, math_random(95, 105))
-			HideMag2(self:GetWM(), true)
-		end,
-		[0.4] = function(self)
-			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_forward.wav", 45, math_random(95, 105))
 		end,
 	},
-	["base_reload_start_empty"] = {
-		[0.3] = function(self)
-			SetModelAmmo(self:GetWM(), self)
-			self:EmitSound("weapons/tfa_ins2/k98/m40a1_boltback.wav", 45, math_random(95, 105))
-			HideMag2(self:GetWM(), true)
-		end,
-	},
-	["Base_Reload_Insert"] = {
+	["Reload_Insert"] = {
 		[0.1] = function(self)
-			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bullet_insert_"..math_random(5)..".wav", 45, math_random(95, 105))
-			HideMag2(self:GetWM(), true)
+			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bullet_insert_"..math_random(1,5)..".wav", 45, math_random(95, 105))
 		end,
-		[0.2] = function(self)
-			if CLIENT then
-				self:SetClip1(self:Clip1() + 1)
-			end
-			SetModelAmmo(self:GetWM(), self)
-		end
 	},
-	["Base_Reload_End"] = {
+	["Reload_End"] = {
 		[0.2] = function(self)
-			SetModelAmmo(self:GetWM(), self)
 			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_forward.wav", 45, math_random(95, 105))
-			HideMag2(self:GetWM(), false)
+		end,
+		[0.5] = function(self)
+			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_close.wav", 45, math_random(95, 105))
+		end,
+	},
+	["base_Fire_end"] = {
+		[0.1] = function(self)
+			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_back.wav", 45, math_random(95, 105))
 		end,
 		[0.3] = function(self)
 			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_forward.wav", 45, math_random(95, 105))
 		end,
 		[0.5] = function(self)
-			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_close.wav", 45, math_random(95, 105))
-			HideMag2(self:GetWM(), false)
-		end,
-	},
-	["base_Fire_end"] = {
-		[0.2] = function(self)
-			SetModelAmmo(self:GetWM(), self)
-			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_back.wav", 45, math_random(95, 105))
-		end,
-		[0.4] = function(self)
-			self:RejectShell(self.ShellEject)
-			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_forward.wav", 45, math_random(95, 105))
-		end,
-		[0.55] = function(self)
-			SetModelAmmo(self:GetWM(), self)
 			self:EmitSound("weapons/easternfront/mosin/handling/mosin_bolt_close.wav", 45, math_random(95, 105))
 		end
 	}
@@ -216,6 +146,29 @@ function SWEP:InitializePost()
 end
 
 function SWEP:AnimationPost()
+	local animpos = math.Clamp(self:GetAnimPos_Draw(CurTime()),0,1)
+	local sin = 1 - animpos
+	if sin >= 0.5 then
+		sin = 1 - sin
+	else
+		sin = sin * 1
+	end
+	sin = sin * 2
+	--sin = math.ease.InOutExpo(sin)
+	sin = math.ease.InOutSine(sin)
+
+	if sin > 0 then
+		self.LHPos[1] = 18 - sin * 6
+		self.RHPos[1] = 1 - sin * 4
+		self.inanim = true
+	else
+		self.inanim = nil
+	end
+
+	local wep = self:GetWeaponEntity()
+	if CLIENT and IsValid(wep) then
+		wep:ManipulateBonePosition(4,Vector(0,0,sin * -3),false)
+	end
 end
 
 function SWEP:GetAnimPos_Insert(time)
@@ -228,7 +181,7 @@ end
 
 local function cock(self,time)
 	if SERVER then
-		self:Draw(true, true)
+		self:Draw(true)
 	end
 
 	if self:Clip1() == 0 then
@@ -244,7 +197,7 @@ local function cock(self,time)
 	net.Broadcast()
 
 	self.Primary.Next = CurTime() + self.AnimDraw + self.Primary.Wait
-	
+	--if CLIENT then self:PlaySnd(self.CockSound or "snd_jack_hmcd_boltcycle.wav",true,CHAN_AUTO) end
 
 	local ply = self:GetOwner()
 
@@ -266,7 +219,7 @@ local function reloadFunc(self)
 		self:GetWM():ManipulateBoneScale(self.MagIndex, vector_full)
 	end
 
-	self:PlayAnim(self.AnimList["insert"] or "reload_insert", 1, false, function() 
+	self:PlayAnim(self.AnimList["insert"] or "Reload_Insert", 1, false, function() 
 		self:InsertAmmo(1) 
 		if self.MagIndex then
 			self:GetWM():ManipulateBoneScale(self.MagIndex, vector_origin)
@@ -279,17 +232,18 @@ local function reloadFunc(self)
 			reloadFunc(self)
 			return
 		end
-
+		--self:GetOwner():ChatPrint(tostring(self.drawBullet))
+		--self:PlaySnd(self.CockSound or "weapons/shotgun/shotgun_cock.wav",true,CHAN_AUTO)
 		if !self.drawBullet then
 			cock(self,1)
-			self:PlayAnim(self.AnimList["finish_empty"] or "bolt_close_0", 1, false, function(self) self:SetNetVar("shootgunReload", 0) end, false, true) 
+			self:PlayAnim(self.AnimList["finish_empty"] or "base_Fire_end", 1, false, function(self) self:SetNetVar("shootgunReload", 0) end, false, true) 
 		else
-			self:PlayAnim(self.AnimList["finish"] or "bolt_close_0", 1, false, function(self) self:SetNetVar("shootgunReload", 0) end, false, true) 
+			self:PlayAnim(self.AnimList["finish"] or "reload_end", 1, false, function(self) self:SetNetVar("shootgunReload", 0) end, false, true) 
 		end
 	end, false, true)
 end
 
-SWEP.FakeEjectBrassATT = "shell"
+SWEP.FakeEjectBrassATT = "2"
 
 function SWEP:Reload(time)
 	--print(self:GetNetVar("shootgunReload",0))
@@ -304,7 +258,7 @@ function SWEP:Reload(time)
 	if self.drawBullet == false and SERVER then
 		cock(self,1.5)
 		self:SetNetVar("shootgunReload",CurTime() + 1.3)
-		self:PlayAnim(self.AnimList["cycle"] or "cycle_0", 1.5, false, nil, false, true)
+		self:PlayAnim(self.AnimList["cycle"] or "cycle", 1.5, false, nil, false, true)
 		return
 	end
 
@@ -312,11 +266,7 @@ function SWEP:Reload(time)
 
 	if SERVER then
 		self:SetNetVar("shootgunReload",CurTime() + 1.1)
-		self:PlayAnim((self.drawBullet == nil and self.AnimList["start_empty"] or self.AnimList["start"]) or "bolt_open_0",1,false,function()
-			if self.drawBullet then
-				self:SetClip1(self:Clip1() - 1)
-				ply:GiveAmmo(1, self:GetPrimaryAmmoType(), true)
-			end
+		self:PlayAnim(self.AnimList["start"] or "Reload_Start",1,false,function() 
 			reloadFunc(self)
 		end,
 		false,true)
