@@ -142,7 +142,7 @@ hg.armor.torso = {
 		model = "models/lightvest/lightvest.mdl",
 		material = {"models/lightvest/accs_diff_000_a_uni",
 		"models/lightvest/accs_diff_000_h_uni", "models/lightvest/accs_diff_000_f_uni",
-		"models/lightvest/accs_diff_000_e_uni", "sal/acc/armor01_3"},
+		"models/lightvest/accs_diff_000_e_uni", "sal/acc/armor01_3", "sal/acc/armor01_2", "sal/acc/armor01"},
 		femPos = Vector(2.5, 0, 1),
 		scale = 0.88,
 		femscale = 0.8,
