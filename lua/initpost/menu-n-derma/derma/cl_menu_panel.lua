@@ -1,13 +1,13 @@
 ----
 local PANEL = {}
 
-local red_select = Color(245,45,45)
+local red_select = Color(26,2,2)
 
 local Selects = {
     {Title = "Disconnect", Func = function(luaMenu) RunConsoleCommand("disconnect") end},
     {Title = "Main Menu", Func = function(luaMenu) gui.ActivateGameUI() luaMenu:Close() end},
     {Title = "Settings", Func = function(luaMenu) luaMenu:Close() RunConsoleCommand("hg_settings") end},
-    {Title = "Discord", Func = function(luaMenu) luaMenu:Close() gui.OpenURL("https://discord.gg/475EmEdTgH")  end},
+    --{Title = "Discord", Func = function(luaMenu) luaMenu:Close() gui.OpenURL("https://discord.gg/475EmEdTgH")  end},
     --{Title = "How to play", Func = function(luaMenu) gui.OpenURL("http://zcity-help.ru/zcity_wiki.htm?") end},
     --{Title = "Wiki/Rules", Func = function(luaMenu) luaMenu:Close() gui.OpenURL("http://zcity-help.ru") end},
     {Title = "Achievements", Func = function(luaMenu) luaMenu:Close() RunConsoleCommand("hg_achievements") end},
@@ -97,18 +97,18 @@ function PANEL:InitializeMarkup()
 	local gm = gmod.GetGamemode().Name .. " | " .. string.NiceName(zb ~= nil and zb.GetRoundName or mapname)
 
     if hg.PluvTown.Active then
-        local text = "<font=ZC_MM_Title><colour=255,15,15,255>    </colour>City</font>\n<font=ZCity_Small>" .. gm .. "</font>"
+        local text = "<font=ZC_MM_Title><colour=60,17,300,255>    </colour>City</font>\n<font=ZCity_Small>" .. gm .. "</font>"
 
         self.SelectedPluv = table.Random(hg.PluvTown.PluvMats)
 
         return markup.Parse(text)
     end
 
-    local text = "<font=ZC_MM_Title><colour=255,15,15,255>Z</colour>-City</font>\n<font=ZCity_Small>" .. gm .. "</font>"
+    local text = "<font=ZC_MM_Title><colour=26,2,2,255>Fekal</colour>-City</font>\n<font=ZCity_Small>" .. gm .. "</font>"
     return markup.Parse(text)
 end
 
-local color_red = Color(255,25,25,45)
+local color_red = Color(26,2,2,45)
 local clr_gray = Color(255,255,255,25)
 local clr_verygray = Color(10,10,19,235)
 function PANEL:Init()
@@ -170,10 +170,8 @@ function PANEL:Init()
     git:Dock(BOTTOM)
     git:SetFont("ZCity_Tiny")
     git:SetTextColor(clr_gray)
-    --[[
-        hg.GitHub_ReposOwner = "uzelezz"
-        hg.GitHub_ReposName = "zcity" -- please add your real git fork!
-    --]]
+        hg.GitHub_ReposOwner = "Fiyyok"
+        hg.GitHub_ReposName = "Fekal-City" -- please add your real git fork!
     git:SetText("GitHub: github.com/" .. hg.GitHub_ReposOwner .. "/" .. hg.GitHub_ReposName)
     git:SetContentAlignment(3)
     git:SetMouseInputEnabled( true )
@@ -323,7 +321,7 @@ vgui.Register( "ZMainMenu", PANEL, "ZFrame")
 
 hook.Add("OnPauseMenuShow","OpenMainMenu",function()
     local run = hook.Run("OnShowZCityPause")
-    if run != nil then
+    if run then
         return run
     end
 
