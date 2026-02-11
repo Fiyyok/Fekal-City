@@ -1503,6 +1503,38 @@ hg.Accessories = {
         SubMat = "distac/41/cap_fire",
         name = "Cool Cap"
     },
+	 ["sherpa"] = {
+        model = "models/gruchk/jmod_dayz/hats/hw_sherpa_hat.mdl",
+        bone = "ValveBiped.Bip01_Head1",
+        malepos = {Vector(3.9,0,0),Angle(180,80,90),1},
+        fempos = {Vector(2.7,0,0),Angle(180,92,90),1},
+        skin = 0,
+        placement = "head",
+        norender = true,
+        bonemerge = true,
+        bPointShop = false,
+        price = 2000,
+        vpos = Vector(0,0,0),
+        SubMat = "",
+        name = "Sherpa Hat"
+    },
+    ["award"] = {
+        model = "models/saintblue/fellforit/fellforit.mdl",
+        bone = "ValveBiped.Bip01_Spine4",
+        --malepos = {Vector(-2,7.6,4),Angle(0,160,70),0.7}, разкоментить для расположения медали слева
+        malepos = {Vector(-1.5,8,-3.2),Angle(0,160,105),0.5}, 
+        --fempos = {Vector(-2,6.2,3),Angle(0,145,73),0.6}, опять слева...
+        fempos = {Vector(-2,6.3,-3),Angle(0,145,110),0.4}, 
+        skin = 0,
+        placement = "torso",
+        norender = true,
+        bonemerge = true,
+        bPointShop = true,
+        price = 2000,
+        vpos = Vector(0,0,0),
+        SubMat = "",
+        name = "Fell For It Award"
+    },
 }
 
 hook.Add("Think","RemoveME",function()
